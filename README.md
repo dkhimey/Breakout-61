@@ -1,14 +1,11 @@
-CS 61 Problem Set 4
+Breakout
 ===================
 
-**Fill out both this file and `AUTHORS.md` before submitting.** We grade
-anonymously, so put all personally identifying information, including
-collaborators, in `AUTHORS.md`.
+To play the game, clone the repo and run:
 
-Grading notes (if any)
-----------------------
+- ./breakout61 -p0.1 to print the board every 0.1 seconds
+- ./breakout61 -p0.1 -W6 to add 6 warps
+- ./breakout61 -p0.1 -W6 -s10 to add 10 sticky cells
+- ./breakout61 -p0.1 -W6 -s10 -b30 to run with 30 balls
 
-
-
-Extra credit attempted (if any)
--------------------------------
+(Try with different variations =D)
