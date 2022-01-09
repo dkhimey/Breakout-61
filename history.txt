@@ -1,0 +1,49 @@
+pre-step 2/3 (making syscalls in io61_read/write) :
+dianakhimey@Dianas-MacBook-Pro pset4 % make check-1-6
+perl check.pl 1-6
+TEST:      1. regular small file, character I/O, sequential
+COMMAND:   ./cat61 -o files/out.txt files/text1meg.txt
+STDIO:     0.13825s (0.10782s user, 0.02103s system, 737280KiB memory, 5 trials)
+  COMPILE io61.cc
+  LINK cat61 
+YOUR CODE: 6.83067s (0.52477s user, 5.74549s system, 737280KiB memory, 2 trials)
+RATIO:     0.02x stdio
+
+TEST:      2. regular small binary file, character I/O, sequential
+COMMAND:   ./cat61 -o files/out.bin files/binary1meg.bin
+STDIO:     0.11716s (0.09241s user, 0.01966s system, 757760KiB memory, 5 trials)
+YOUR CODE: 5.64958s (0.50791s user, 5.09371s system, 733184KiB memory, 1 trial)
+RATIO:     0.02x stdio
+
+TEST:      3. regular large file, character I/O, sequential
+COMMAND:   ./cat61 -o files/out.txt files/text20meg.txt
+STDIO:     2.06450s (1.68697s user, 0.28126s system, 757760KiB memory, 2 trials)
+YOUR CODE: KILLED (timeout after 20.00s)
+    ERROR: out.txt differs from stdio's baseout.txt (EOF on files/out.txt)
+
+TEST:      4. regular medium file, 1KB block I/O, sequential
+COMMAND:   ./blockcat61 -b 1024 -o files/out.txt files/text5meg.txt
+STDIO:     0.08062s (0.00313s user, 0.06439s system, 737280KiB memory, 5 trials)
+  LINK blockcat61 
+YOUR CODE: 0.09638s (0.00378s user, 0.07788s system, 737280KiB memory, 5 trials)
+RATIO:     0.84x stdio
+
+TEST:      5. regular large file, 4KB block I/O, sequential
+COMMAND:   ./blockcat61 -o files/out.txt files/text20meg.txt
+STDIO:     0.33764s (0.00692s user, 0.25223s system, 757760KiB memory, 5 trials)
+YOUR CODE: 0.37867s (0.00539s user, 0.28611s system, 753664KiB memory, 5 trials)
+RATIO:     0.89x stdio
+
+TEST:      6. regular small binary file, 4KB block I/O, sequential
+COMMAND:   ./blockcat61 -o files/out.bin files/binary1meg.bin
+STDIO:     0.02759s (0.00308s user, 0.02080s system, 778240KiB memory, 5 trials)
+YOUR CODE: 0.02757s (0.00195s user, 0.01840s system, 761856KiB memory, 5 trials)
+RATIO:     1.00x stdio
+
+SUMMARY:   6 tests, 1 killed, 1 error
+           better than stdio 1 time, worse 4 times
+           average 0.55x stdio
+           total time 0.701s stdio, 12.983s your code (0.05x stdio)
+
+
+after step 2 (implementing read):
